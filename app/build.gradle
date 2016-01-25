@@ -46,7 +46,7 @@ dependencies {
     apt dependencies.daggerCompiler
     compile dependencies.dagger
     provided dependencies.javaxAnnotation
-
+    compile dependencies.butterKnife
     //Test libraries
     testCompile dependencies.junit
     androidTestApt dependencies.daggerCompiler

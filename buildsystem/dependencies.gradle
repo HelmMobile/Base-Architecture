@@ -16,9 +16,9 @@ ext {
 
     //Libraries
     androidSupportVersion = '23.1.1'
-    daggerVersion = '2.0.1'
+    daggerVersion = '2.0.2'
     javaxAnnotationVersion = '10.0-b28'
-
+    butterKnifeVersion = '7.0.1'
     //Testing Libraries
     junit = '4.12'
 
@@ -27,7 +27,7 @@ ext {
         daggerCompiler:   "com.google.dagger:dagger-compiler:${daggerVersion}",
         dagger:           "com.google.dagger:dagger:${daggerVersion}",
         javaxAnnotation:  "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
-
+        butterKnife: "com.jakewharton:butterknife:${butterKnifeVersion}",
         //Testing
         junit:          "junit:junit:${junit}"
     ]

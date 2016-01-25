@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
 
@@ -35,10 +36,18 @@ dependencies {
     def domainLayer = project(':domain')
     compile domainLayer
 
-    def dataDependencies = rootProject.ext.dataDependencies
-    def dataTestDependencies = rootProject.ext.dataTestDependencies
+    def dependencies = rootProject.ext.dependencies
 
-    compile dataDependencies.appcompat
-    testCompile dataTestDependencies.junit
+    //libraries
+    compile dependencies.appcompat
+    apt dependencies.daggerCompiler
+    compile dependencies.dagger
+    provided dependencies.javaxAnnotation
+
+    //Test libraries
+    testCompile dependencies.junit
+    androidTestApt dependencies.daggerCompiler
+    androidTestProvided dependencies.javaxAnnotation
+    androidTestCompile dependencies.dagger
 
 }

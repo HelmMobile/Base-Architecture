@@ -26,4 +26,12 @@ ext {
         junit:          "junit:junit:${junit}"
     ]
 
+    dataDependencies = [
+        appcompat:      "com.android.support:appcompat-v7:${androidSupportVersion}",
+    ]
+
+    dataTestDependencies = [
+        junit:          "junit:junit:${junit}"
+    ]
+
 }

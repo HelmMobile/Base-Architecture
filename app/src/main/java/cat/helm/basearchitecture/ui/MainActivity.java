@@ -1,5 +1,7 @@
 package cat.helm.basearchitecture.ui;
 
+import android.util.Log;
+import cat.helm.basearchitecture.Entities.DummyViewEntity;
 import cat.helm.basearchitecture.R;
 import cat.helm.basearchitecture.ui.base.BaseActivity;
 import cat.helm.basearchitecture.ui.di.ActivityModule;
@@ -30,5 +32,10 @@ public class MainActivity extends BaseActivity implements MainView{
 
     @Override
     protected void onViewLoaded() {
+    }
+
+    @Override
+    public void showLog(DummyViewEntity map) {
+        Log.e("MainActivity", map.getString());
     }
 }

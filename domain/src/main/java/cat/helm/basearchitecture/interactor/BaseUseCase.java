@@ -17,21 +17,23 @@ public abstract class BaseUseCase<T> {
         this.postExecutionThread = postExecutionThread;
     }
 
-    public void notifyOnError(final ErrorBundle errorBundle, final DefaultCallback<T> callback) {
+    public void notifyOnError(final ErrorBundle errorBundle) {
         postExecutionThread.post(new Runnable() {
             @Override
             public void run() {
-                callback.onError(errorBundle);
+                getCallback().onError(errorBundle);
             }
         });
     }
 
-    public void notifyOnSuccess(final T param, final DefaultCallback<T> callback) {
+    public void notifyOnSuccess(final T param) {
         postExecutionThread.post(new Runnable() {
             @Override
             public void run() {
-                callback.onSuccess(param);
+                getCallback().onSuccess(param);
             }
         });
     }
+
+    public abstract DefaultCallback<T> getCallback();
 }

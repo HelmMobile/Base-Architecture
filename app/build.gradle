@@ -42,14 +42,14 @@ dependencies {
     def dependencies = rootProject.ext.dependencies
 
     //libraries
-    compile dependencies.appcompat
     apt dependencies.daggerCompiler
-    compile dependencies.dagger
     provided dependencies.javaxAnnotation
+    compile dependencies.dagger
+    compile dependencies.appcompat
     compile dependencies.butterKnife
     //Test libraries
+    androidTestCompile dependencies.dagger
+    androidTestProvided dependencies.javaxAnnotation
     testCompile dependencies.junit
     androidTestApt dependencies.daggerCompiler
-    androidTestProvided dependencies.javaxAnnotation
-    androidTestCompile dependencies.dagger
 }

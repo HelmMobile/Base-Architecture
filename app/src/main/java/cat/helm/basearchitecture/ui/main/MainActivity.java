@@ -5,7 +5,7 @@ import cat.helm.basearchitecture.entities.DummyViewEntity;
 import cat.helm.basearchitecture.R;
 import cat.helm.basearchitecture.ui.base.BaseActivity;
 import cat.helm.basearchitecture.di.ActivityModule;
-import cat.helm.basearchitecture.ui.di.DaggerActivityComponent;
+import cat.helm.basearchitecture.di.DaggerActivityComponent;
 import cat.helm.basearchitecture.di.ViewModule;
 
 import javax.inject.Inject;

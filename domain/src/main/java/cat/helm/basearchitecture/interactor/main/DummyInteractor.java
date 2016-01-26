@@ -10,7 +10,6 @@ import cat.helm.basearchitecture.exception.ErrorBundle;
 import cat.helm.basearchitecture.executor.PostExecutionThread;
 import cat.helm.basearchitecture.executor.ThreadExecutor;
 import cat.helm.basearchitecture.interactor.BaseUseCase;
-import cat.helm.basearchitecture.interactor.DefaultCallback;
 import cat.helm.basearchitecture.model.Dummy;
 
 import javax.inject.Inject;
@@ -24,12 +23,12 @@ public class DummyInteractor extends BaseUseCase<Dummy> implements DummyUseCase{
     DummyRepository.DummyCallback dataCallback = new DummyRepository.DummyCallback() {
         @Override
         public void onError(ErrorBundle errorBundle) {
-            notifyOnError(errorBundle);
+            notifyOnError(errorBundle,callback);
         }
 
         @Override
         public void onSuccess(Dummy returnParam) {
-            notifyOnSuccess(returnParam);
+            notifyOnSuccess(returnParam, callback);
         }
     };
 
@@ -51,8 +50,4 @@ public class DummyInteractor extends BaseUseCase<Dummy> implements DummyUseCase{
         repository.getDummyString(dataCallback);
     }
 
-    @Override
-    public DefaultCallback<Dummy> getCallback() {
-        return callback;
-    }
 }

@@ -13,6 +13,7 @@ public class DummyViewEntityMapper extends Mapper<DummyViewEntity, Dummy> {
 
     @Inject
     public DummyViewEntityMapper() {
+        //DIP purposes
     }
 
     @Override

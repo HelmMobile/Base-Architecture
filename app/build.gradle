@@ -85,7 +85,18 @@ task pmd (type: Pmd, dependsOn: assembleDebug) {
     description 'Run pmd'
     group 'verification'
 
-    ruleSets = ["java-basic", "java-braces", "java-strings", "java-design", "java-unusedcode"]
+    ruleSets = ["java-basic",
+                "java-braces",
+                "java-strings",
+                "java-design",
+                "java-codesize",
+                "java-coupling" ,
+                "java-empty",
+                "java-typeresolution",
+                "java-unnecessary",
+                "java-unusedcode",
+                "java-android"]
+
     source = fileTree('src/main/java')
 
     reports {

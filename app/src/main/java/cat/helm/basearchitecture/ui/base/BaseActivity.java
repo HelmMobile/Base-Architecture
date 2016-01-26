@@ -20,9 +20,8 @@ public abstract class BaseActivity  extends AppCompatActivity{
         initializeInjection();
         initializeViewsInjection();
     }
-
-    protected ApplicationComponent getApplicationComponent() {
-        return ((Application)getApplication()).getApplicationComponent();
+    protected ApplicationComponent getApplicationComponent(Application application) {
+        return application.getApplicationComponent();
     }
 
     private void initializeInjection() {

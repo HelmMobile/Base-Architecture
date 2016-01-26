@@ -9,8 +9,6 @@ import cat.helm.basearchitecture.entities.DummyDataEntity;
 
 public class DiskDummyDataStore implements DummyDataStore {
 
-    boolean isExpired = true;
-
 
     @Override
     public DummyDataEntity getDummy() {

@@ -44,8 +44,8 @@ task findbugs(type: FindBugs, dependsOn: compileJava) {
      excludeFilter = file("./config/findbugs/exclude.xml")
 
     reports {
-        xml.enabled = true
-        html.enabled = false
+        xml.enabled = false
+        html.enabled = true
     }
 }
 
@@ -54,12 +54,21 @@ task pmd (type: Pmd, dependsOn: compileJava) {
     description 'Run pmd'
     group 'verification'
 
-    ruleSets = ["java-basic", "java-braces", "java-strings", "java-design", "java-unusedcode"]
+    ruleSets = ["java-basic",
+                "java-braces",
+                "java-strings",
+                "java-design",
+                "java-codesize",
+                "java-coupling" ,
+                "java-empty",
+                "java-typeresolution",
+                "java-unnecessary",
+                "java-unusedcode"]
     source = fileTree('src/main/java')
 
     reports {
-        xml.enabled = true
-        html.enabled = false
+        xml.enabled = false
+        html.enabled = true
     }
 }
 

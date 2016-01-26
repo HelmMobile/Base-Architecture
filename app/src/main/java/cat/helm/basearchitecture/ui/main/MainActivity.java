@@ -1,6 +1,7 @@
 package cat.helm.basearchitecture.ui.main;
 
 import android.util.Log;
+import cat.helm.basearchitecture.Application;
 import cat.helm.basearchitecture.entities.DummyViewEntity;
 import cat.helm.basearchitecture.R;
 import cat.helm.basearchitecture.ui.base.BaseActivity;
@@ -13,11 +14,11 @@ import javax.inject.Inject;
 public class MainActivity extends BaseActivity implements MainView{
 
     @Inject MainPresenter presenter;
-
     @Override
     protected void onInitializeInjection() {
+        Application application = (Application) getApplication();
         DaggerActivityComponent.builder()
-                .applicationComponent(getApplicationComponent())
+                .applicationComponent(getApplicationComponent(application))
                 .activityModule(new ActivityModule(this))
                 .viewModule(new ViewModule(this))
                 .build()

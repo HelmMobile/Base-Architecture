@@ -9,7 +9,9 @@ package cat.helm.basearchitecture.interactor;
 import cat.helm.basearchitecture.exception.ErrorBundle;
 import cat.helm.basearchitecture.executor.PostExecutionThread;
 
-public abstract class BaseUseCase<T> {
+
+
+public class BaseUseCase<T> {
 
     private final PostExecutionThread postExecutionThread;
 
@@ -17,23 +19,22 @@ public abstract class BaseUseCase<T> {
         this.postExecutionThread = postExecutionThread;
     }
 
-    public void notifyOnError(final ErrorBundle errorBundle) {
+    public void notifyOnError(final ErrorBundle errorBundle, final DefaultCallback<T> callback) {
         postExecutionThread.post(new Runnable() {
             @Override
             public void run() {
-                getCallback().onError(errorBundle);
+                callback.onError(errorBundle);
             }
         });
     }
 
-    public void notifyOnSuccess(final T param) {
+    public void notifyOnSuccess(final T param, final DefaultCallback<T> callback) {
         postExecutionThread.post(new Runnable() {
             @Override
             public void run() {
-                getCallback().onSuccess(param);
+                callback.onSuccess(param);
             }
         });
     }
 
-    public abstract DefaultCallback<T> getCallback();
 }

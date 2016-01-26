@@ -11,6 +11,7 @@ public class DummyDataStoreFactory {
 
     @Inject
     public DummyDataStoreFactory() {
+        //DIP purposes
     }
 
     public DiskDummyDataStore create() {

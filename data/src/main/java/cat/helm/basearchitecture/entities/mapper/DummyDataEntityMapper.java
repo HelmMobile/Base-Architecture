@@ -14,6 +14,7 @@ public class DummyDataEntityMapper {
 
     @Inject
     public DummyDataEntityMapper() {
+        //DIP purposes
     }
 
     public Dummy map (DummyDataEntity dummyDataEntity){

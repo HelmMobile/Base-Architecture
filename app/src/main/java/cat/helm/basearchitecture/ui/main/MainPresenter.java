@@ -33,7 +33,7 @@ public class MainPresenter implements Presenter{
         dummyUseCase.execute(new DummyUseCase.DummyCallback() {
             @Override
             public void onError(ErrorBundle errorBundle) {
-
+                //empty
             }
 
             @Override

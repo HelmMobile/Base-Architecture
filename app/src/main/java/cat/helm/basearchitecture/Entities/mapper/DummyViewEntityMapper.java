@@ -3,12 +3,17 @@ Created by Helm  25/1/16.
 */
 
 
-package cat.helm.basearchitecture.Entities.mapper;
-import cat.helm.basearchitecture.Entities.DummyViewEntity;
-import cat.helm.basearchitecture.entities.mapper.Mapper;
+package cat.helm.basearchitecture.entities.mapper;
+import cat.helm.basearchitecture.entities.DummyViewEntity;
 import cat.helm.basearchitecture.model.Dummy;
 
+import javax.inject.Inject;
+
 public class DummyViewEntityMapper extends Mapper<DummyViewEntity, Dummy> {
+
+    @Inject
+    public DummyViewEntityMapper() {
+    }
 
     @Override
     public DummyViewEntity map(Dummy entity) {

@@ -3,7 +3,7 @@ Created by Helm  25/1/16.
 */
 
 
-package cat.helm.basearchitecture.Entities;
+package cat.helm.basearchitecture.entities;
 
 public class DummyViewEntity {
 

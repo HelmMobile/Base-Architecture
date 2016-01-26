@@ -3,7 +3,7 @@ Created by Helm  25/1/16.
 */
 
 
-package cat.helm.basearchitecture.ui.di;
+package cat.helm.basearchitecture.di;
 
 
 import android.app.Activity;
@@ -13,6 +13,7 @@ import dagger.Provides;
 @Module(
         includes = {
                 ViewModule.class,
+                DomainModule.class,
         }
 )
 public class ActivityModule {

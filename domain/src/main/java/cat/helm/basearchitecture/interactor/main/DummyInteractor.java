@@ -13,6 +13,8 @@ import cat.helm.basearchitecture.interactor.BaseUseCase;
 import cat.helm.basearchitecture.interactor.DefaultCallback;
 import cat.helm.basearchitecture.model.Dummy;
 
+import javax.inject.Inject;
+
 public class DummyInteractor extends BaseUseCase<Dummy> implements DummyUseCase{
 
     private final ThreadExecutor executor;
@@ -31,6 +33,7 @@ public class DummyInteractor extends BaseUseCase<Dummy> implements DummyUseCase{
         }
     };
 
+    @Inject
     public DummyInteractor(PostExecutionThread postExecutionThread, ThreadExecutor executor, DummyRepository repository) {
         super(postExecutionThread);
         this.executor = executor;
@@ -40,7 +43,6 @@ public class DummyInteractor extends BaseUseCase<Dummy> implements DummyUseCase{
     @Override
     public void execute(DummyCallback callback) {
         this.callback = callback;
-
         executor.execute(this);
     }
 

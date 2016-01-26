@@ -7,5 +7,5 @@ package cat.helm.basearchitecture.ui.base;
 
 public interface Presenter {
 
-    public void onStart();
+     void onStart();
 }

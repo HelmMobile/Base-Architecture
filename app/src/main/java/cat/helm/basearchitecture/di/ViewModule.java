@@ -3,9 +3,9 @@ Created by Helm  25/1/16.
 */
 
 
-package cat.helm.basearchitecture.ui.di;
+package cat.helm.basearchitecture.di;
 
-import cat.helm.basearchitecture.ui.MainView;
+import cat.helm.basearchitecture.ui.main.MainView;
 import dagger.Module;
 import dagger.Provides;
 

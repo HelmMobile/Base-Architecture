@@ -3,9 +3,9 @@ Created by Helm  25/1/16.
 */
 
 
-package cat.helm.basearchitecture.ui;
+package cat.helm.basearchitecture.ui.main;
 
-import cat.helm.basearchitecture.Entities.mapper.DummyViewEntityMapper;
+import cat.helm.basearchitecture.entities.mapper.DummyViewEntityMapper;
 import cat.helm.basearchitecture.exception.ErrorBundle;
 import cat.helm.basearchitecture.interactor.main.DummyUseCase;
 import cat.helm.basearchitecture.model.Dummy;

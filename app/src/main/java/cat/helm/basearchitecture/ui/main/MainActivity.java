@@ -1,12 +1,12 @@
-package cat.helm.basearchitecture.ui;
+package cat.helm.basearchitecture.ui.main;
 
 import android.util.Log;
-import cat.helm.basearchitecture.Entities.DummyViewEntity;
+import cat.helm.basearchitecture.entities.DummyViewEntity;
 import cat.helm.basearchitecture.R;
 import cat.helm.basearchitecture.ui.base.BaseActivity;
-import cat.helm.basearchitecture.ui.di.ActivityModule;
+import cat.helm.basearchitecture.di.ActivityModule;
 import cat.helm.basearchitecture.ui.di.DaggerActivityComponent;
-import cat.helm.basearchitecture.ui.di.ViewModule;
+import cat.helm.basearchitecture.di.ViewModule;
 
 import javax.inject.Inject;
 
@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivity implements MainView{
 
     @Override
     protected void onViewLoaded() {
+        presenter.onStart();
     }
 
     @Override

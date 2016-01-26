@@ -14,7 +14,11 @@ import dagger.Module;
 import dagger.Provides;
 
 import javax.inject.Singleton;
-@Module
+@Module(
+        includes = {
+                DataModule.class,
+        }
+)
 public class ApplicationModule {
 
     private Application application;

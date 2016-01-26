@@ -3,11 +3,10 @@ Created by Helm  25/1/16.
 */
 
 
-package cat.helm.basearchitecture.ui.di;
+package cat.helm.basearchitecture.di;
 
-import cat.helm.basearchitecture.di.ApplicationComponent;
-import cat.helm.basearchitecture.di.PerActivity;
-import cat.helm.basearchitecture.ui.MainActivity;
+import cat.helm.basearchitecture.di.scope.PerActivity;
+import cat.helm.basearchitecture.ui.main.MainActivity;
 import dagger.Component;
 
 @PerActivity

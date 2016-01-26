@@ -6,6 +6,7 @@ Created by Helm  25/1/16.
 package cat.helm.basearchitecture.di;
 
 import cat.helm.basearchitecture.Application;
+import cat.helm.basearchitecture.DummyRepository;
 import cat.helm.basearchitecture.executor.PostExecutionThread;
 import cat.helm.basearchitecture.executor.ThreadExecutor;
 import dagger.Component;
@@ -19,6 +20,7 @@ public interface ApplicationComponent {
     Application getApplication();
     ThreadExecutor getThreadExecutor();
     PostExecutionThread getPostExecutionThread();
+    DummyRepository dummyRepository();
 
     void inject(Application application);
 }

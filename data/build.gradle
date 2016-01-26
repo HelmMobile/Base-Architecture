@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: "findbugs"
+apply plugin: "pmd"
 
 android {
 
@@ -49,5 +51,52 @@ dependencies {
     androidTestApt dependencies.daggerCompiler
     androidTestProvided dependencies.javaxAnnotation
     androidTestCompile dependencies.dagger
+
+}
+
+findbugs {
+    sourceSets = []
+    ignoreFailures = true
+}
+
+task findbugs(type: FindBugs, dependsOn: assembleDebug) {
+
+    description 'Run findbugs'
+    group 'verification'
+
+    classes = fileTree('build/intermediates/classes/debug/')
+    source = fileTree('src/main/java')
+    classpath = files()
+
+    effort = 'max'
+
+    excludeFilter = file("config/findbugs/exclude.xml")
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+task pmd (type: Pmd, dependsOn: assembleDebug) {
+    ignoreFailures = true
+    description 'Run pmd'
+    group 'verification'
+
+    ruleSets = ["java-basic", "java-braces", "java-strings", "java-design", "java-unusedcode"]
+    source = fileTree('src/main/java')
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+
+
+
+check.doLast {
+    project.tasks.getByName("findbugs").execute()
+    project.tasks.getByName("pmd").execute()
 
 }

@@ -1,4 +1,6 @@
 apply plugin: 'java'
+apply plugin: "findbugs"
+apply plugin: "pmd"
 
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
@@ -23,3 +25,47 @@ dependencies {
     provided dependencies.javaxAnnotation
 }
 
+findbugs {
+    sourceSets = []
+    ignoreFailures = true
+}
+
+task findbugs(type: FindBugs, dependsOn: compileJava) {
+
+    description 'Run findbugs'
+    group 'verification'
+
+    classes = fileTree('build/classes/main/')
+    source = fileTree('src/main/java')
+    classpath = files()
+
+    effort = 'max'
+
+     excludeFilter = file("./config/findbugs/exclude.xml")
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+task pmd (type: Pmd, dependsOn: compileJava) {
+    ignoreFailures = true
+    description 'Run pmd'
+    group 'verification'
+
+    ruleSets = ["java-basic", "java-braces", "java-strings", "java-design", "java-unusedcode"]
+    source = fileTree('src/main/java')
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+
+check.doLast {
+    project.tasks.getByName("findbugs").execute()
+    project.tasks.getByName("pmd").execute()
+
+}

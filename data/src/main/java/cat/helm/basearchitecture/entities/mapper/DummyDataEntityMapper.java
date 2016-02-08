@@ -10,7 +10,7 @@ import cat.helm.basearchitecture.model.Dummy;
 
 import javax.inject.Inject;
 
-public class DummyDataEntityMapper {
+public class DummyDataEntityMapper extends Mapper<Dummy, DummyDataEntity> {
 
     @Inject
     public DummyDataEntityMapper() {

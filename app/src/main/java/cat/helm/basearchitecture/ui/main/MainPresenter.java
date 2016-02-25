@@ -10,11 +10,10 @@ import cat.helm.basearchitecture.exception.ErrorBundle;
 import cat.helm.basearchitecture.interactor.main.DummyUseCase;
 import cat.helm.basearchitecture.model.Dummy;
 import cat.helm.basearchitecture.ui.base.BaseView;
-import cat.helm.basearchitecture.ui.base.Presenter;
 
 import javax.inject.Inject;
 
-public class MainPresenter implements Presenter{
+public class MainPresenter implements MainView.ViewInteractionListener {
 
     private final BaseView view;
     private final DummyUseCase dummyUseCase;

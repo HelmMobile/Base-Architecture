@@ -13,7 +13,8 @@ import dagger.Provides;
 @Module(
         includes = {
                 ViewModule.class,
-                DomainModule.class,
+                PresenterModule.class,
+                DomainModule.class
         }
 )
 public class ActivityModule {

@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity implements MainView{
 
-    @Inject MainPresenter presenter;
+    @Inject MainView.ViewInteractionListener viewInteractionListener;
     @Override
     protected void onInitializeInjection() {
         Application application = (Application) getApplication();
@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements MainView{
 
     @Override
     protected void onViewLoaded() {
-        presenter.onStart();
+        viewInteractionListener.onStart();
     }
 
     @Override
